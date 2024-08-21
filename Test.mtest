@@ -1,0 +1,113 @@
+@Author Known Unknown;
+@Date 17 / 01 / 2023;
+@Description{ };
+
+@ModellingHypothesis 'Tridimensional';
+@Behaviour<generic>  'src/libBehaviour.so' 'MericCailletaudSingleCrystalViscoPlasticity';
+
+@OutputFile 'Test.txt';
+
+// @AccelerationAlgorithm 'Cast3M';
+
+// Elasticity
+// @MaterialProperty<constant> 'YoungModulus1'     '208000.';
+// @MaterialProperty<constant> 'YoungModulus2'     '208000.';
+// @MaterialProperty<constant> 'YoungModulus3'     '208000.';
+// @MaterialProperty<constant> 'PoissonRatio12'    '0.3';
+// @MaterialProperty<constant> 'PoissonRatio13'    '0.3';
+// @MaterialProperty<constant> 'PoissonRatio23'    '0.3';
+// @MaterialProperty<constant> 'ShearModulus12'    '35000.';
+// @MaterialProperty<constant> 'ShearModulus13'    '46700.';
+// @MaterialProperty<constant> 'ShearModulus23'    '46700.';
+
+// Prismatic slip material parameters
+// @MaterialProperty<constant> 'n_prism' 1;   // norton exponent
+// @MaterialProperty<constant> 'K_prism' 10;   // norton coefficient
+// @MaterialProperty<constant> 'tau0_prism' 50.4 ;   // norton exponent
+// @MaterialProperty<constant> 'Q_prism' 250.;   // norton coefficient
+// @MaterialProperty<constant> 'b_prism' 1. ;   // norton exponent
+
+// @MaterialProperty<constant> 'n_basal' 1;   // norton exponent
+// @MaterialProperty<constant> 'K_basal' 10;   // norton coefficient
+// @MaterialProperty<constant> 'tau0_basal' 76.6;   // norton exponent
+// @MaterialProperty<constant> 'Q_basal' 250.;   // norton coefficient
+// @MaterialProperty<constant> 'b_basal' 1.;   // norton exponent
+
+// @MaterialProperty<constant> 'n_pyr' 1;   // norton exponent
+// @MaterialProperty<constant> 'K_pyr' 10;   // norton coefficient
+// @MaterialProperty<constant> 'tau0_pyr' 62.5 ;   // norton exponent
+// @MaterialProperty<constant> 'Q_pyr' 250.;   // norton coefficient
+// @MaterialProperty<constant> 'b_pyr' 1.;   // norton exponent
+
+// euler 0 0 0
+// @Real 'X1'   '1.0';
+// @Real 'X2'   '0.0';
+// @Real 'X3'   '0.0';
+
+// @Real 'Y1'   '0.0';
+// @Real 'Y2'   '1.0';
+// @Real 'Y3'   '0.0';
+
+// @Real 'Z1'   '0.0';
+// @Real 'Z2'   '0.0';
+// @Real 'Z3'   '1.0';
+
+// euler 0 45 0
+// @Real 'X1'   '1.0';
+// @Real 'X2'   '0.0';
+// @Real 'X3'   '0.0';
+
+// @Real 'Y1'   '0.0';
+// @Real 'Y2'   '0.70710678';
+// @Real 'Y3'   '0.70710678';
+
+// @Real 'Z1'   '0.0';
+// @Real 'Z2'   '-0.70710678';
+// @Real 'Z3'   '0.70710678';
+
+// euler 0 50 0
+// @Real 'X1'   '1.0';
+// @Real 'X2'   '0.0';
+// @Real 'X3'   '0.0';
+
+// @Real 'Y1'   '0.0';
+// @Real 'Y2'   '0.64278761';
+// @Real 'Y3'   '0.76604444';
+
+// @Real 'Z1'   '0.0';
+// @Real 'Z2'   '-0.76604444';
+// @Real 'Z3'   '0.64278761';
+
+// @Real 'nx'   'sqrt(X1*X1+X2*X2+X3*X3)';
+// @Real 'ny'   'sqrt(Y1*Y1+Y2*Y2+Y3*Y3)';
+// @Real 'nz'   'sqrt(Z1*Z1+Z2*Z2+Z3*Z3)';
+
+//~ @RotationMatrix {{'X1/nx','X2/nx','X3/nx'},
+                 //~ {'Y1/ny','Y2/ny','Y3/ny'},
+                 //~ {'Z1/nz','Z2/nz','Z3/nz'}};
+
+// @RotationMatrix {{'X1/nx','Y1/ny','Z1/nz'},
+//                  {'X2/nx','Y2/ny','Z2/nz'},
+//                  {'X3/nx','Y3/ny','Z3/nz'}};
+
+// Other
+@ExternalStateVariable 'Temperature' 330.;
+                             
+// // Loading tension Z
+// @ImposedStrain 'EZZ' {0.: 0., 10. : 0.02}; 
+// @ImposedStress 'SXX' 0.;
+// @ImposedStress 'SYY' 0.; 
+// @ImposedStress 'SXY' 0.;
+// @ImposedStress 'SXZ' 0.; 
+// @ImposedStress 'SYZ' 0.;
+
+
+// mememememe EEZZ
+@ImposedStrain 'EZZ' {0.: 0., 10. : 0.02}; 
+@ImposedStrain 'EYY' 0.; 
+@ImposedStrain 'EXX' 0.;
+@ImposedStrain 'EXY' 0.;
+@ImposedStrain 'EXZ' 0.; 
+@ImposedStrain 'EYZ' 0.;
+
+@Times {0.,10. in 200};
