@@ -24,8 +24,6 @@ EZZ= np.linspace(0,0.02,Ndt+1)
 for s in [m.s0, m.s1]:
     mgisbv.setExternalStateVariable(s, "Temperature", 330)
 
-# it = mgisbv.IntegrationType.PredictionWithElasticOperator
-# mgisbv.integrate(m, it , 0, 0, m.n)
 eps_to0= np.array( [0,0,EZZ[0],0,0,0])
 sig0=m.s0.thermodynamic_forces.flatten()
 intvar0=m.s0.internal_state_variables.flatten()
@@ -37,7 +35,6 @@ mit = mgisbv.IntegrationType.IntegrationWithoutTangentOperator
 for tn in range(1,Ndt+1):
     print('time = ', time[tn])
     eps_to= np.array( [0,0,EZZ[tn],0,0,0])
-    # b.rotateGradients(eps_to,r)
     m.s1.gradients[:, :]= eps_to
     mgisbv.integrate(m, mit, 0, 0, m.n)
     sig=m.s1.thermodynamic_forces.flatten()
@@ -63,7 +60,3 @@ plt.show()
 
 
 
-plt.close()
-
-
-ll=55
