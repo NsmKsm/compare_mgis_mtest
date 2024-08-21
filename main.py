@@ -36,12 +36,14 @@ for tn in range(1,Ndt+1):
     print('time = ', time[tn])
     eps_to= np.array( [0,0,EZZ[tn],0,0,0])
     m.s1.gradients[:, :]= eps_to
-    mgisbv.integrate(m, mit, 0, 0, m.n)
+    dt = time[tn] - time[tn - 1]
+    mgisbv.integrate(m, mit, dt, 0, m.n)
     sig=m.s1.thermodynamic_forces.flatten()
     intvar=m.s1.internal_state_variables.flatten()
 
     para=np.array([np.concatenate((np.array([time[tn]]),eps_to, sig, intvar))])
     data_mgs=np.concatenate((data_mgs, para ))
+
     mgisbv.update(m)
 
 
