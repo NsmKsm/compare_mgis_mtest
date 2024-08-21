@@ -4,7 +4,7 @@ import mgis.behaviour as mgisbv
 import numpy as np
 import matplotlib.pyplot as plt
 
-solref= np.loadtxt('Test.txt')
+data_mtest= np.loadtxt('Test.txt')
 
 h=mgisbv.Hypothesis.Tridimensional
 
@@ -51,7 +51,7 @@ ylbs=['time','Exx','Eyy','Ezz','Exy','Exz','Eyz','Sxx','Syy','Szz','Sxy','Sxz','
       'BS0','BS1','BS2','BS3','BS4','BS5','BS6','BS7','BS8','BS9','BS10','BS11'] # EVS = EquivalentViscoplasticSlip,, BS= BackStrain
 
 plt.plot( time, data_mgs[:,Nvar],'r-',label='MGIS')
-plt.plot(time,solref[:,Nvar],'b--',label='MTEST')
+plt.plot(time,data_mtest[:,Nvar],'b--',label='MTEST')
 plt.xlabel('time')
 plt.ylabel(ylbs[Nvar])
 plt.legend(loc="lower right")
