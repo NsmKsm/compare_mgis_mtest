@@ -77,7 +77,7 @@ intvar0=m.s0.internal_state_variables # internale variables at t=0
 
 
 
-Mtest_ind=1 # the indexe of gauss point that corresponds to MTEST (for comparing)
+Mtest_ind=0 # the indexe of gauss point that corresponds to MTEST (for comparing)
 eps_to0= eps_tot[Mtest_ind,0] # strain at t=0
 data_mgs= np.array([np.concatenate((np.array([0]),eps_to0, sig0[Mtest_ind], intvar0[Mtest_ind]))]) # all data in time (strain, stress and internal variables) are stored here.
 
