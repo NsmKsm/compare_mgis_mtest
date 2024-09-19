@@ -12,17 +12,10 @@
 @Epsilon 1.e-14;
 @Theta 1;
 
-@Brick StandardElasticity{
-  young_modulus1 : 208000,
-  young_modulus2 : 208000,
-  young_modulus3 : 208000,
-  poisson_ratio12 : 0.3,
-  poisson_ratio23 : 0.3,
-  poisson_ratio13 : 0.3,
-  shear_modulus12 : 80000,
-  shear_modulus23 : 80000,
-  shear_modulus13 : 80000
-};
+@RequireStiffnessTensor;
+
+@Brick "StandardElasticity";
+
 
 @CrystalStructure FCC;
 @SlidingSystem<0, 1, -1>{1, 1, 1};
@@ -44,6 +37,10 @@ p.setEntryName("EquivalentViscoplasticSlip");
 
 @AuxiliaryStateVariable strain a[Nss];
 a.setEntryName("BackStrain");
+
+// @ComputeStress{
+//   sig = D*eel; 
+// }
 
 @Integrator {
   using size_type = unsigned short;

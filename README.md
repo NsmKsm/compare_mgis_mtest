@@ -1,10 +1,6 @@
-this rep is just for testing
+- This repository is just for testing. "main.py" compares the results obtained by mgis and mtest. 
+- Before anything, "mfront" and "mgis" need be installed. The install instructions are detailed in (https://github.com/thelfer/tfel.git for mfront) and (https://github.com/thelfer/MFrontGenericInterfaceSupport.git for mgis).
 
-1) mfront and mgis need to be already installed.
-2) Before executing the python script these commands are needed:
 
-$ mfront --obuild --interface=generic MericCailletaudSingleCrystalViscoPlasticity.mfront 
-
-$ mtest Test.mtest
 
 

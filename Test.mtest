@@ -7,6 +7,16 @@
 
 @OutputFile 'Test.txt';
 
+@MaterialProperty<constant> 'YoungModulus1' 208000;
+@MaterialProperty<constant> 'YoungModulus2' 208000;
+@MaterialProperty<constant> 'YoungModulus3' 208000;
+@MaterialProperty<constant> 'PoissonRatio12' 0.3;
+@MaterialProperty<constant> 'PoissonRatio23' 0.3;
+@MaterialProperty<constant> 'PoissonRatio13' 0.3;
+@MaterialProperty<constant> 'ShearModulus12' 80000;
+@MaterialProperty<constant> 'ShearModulus23' 80000;
+@MaterialProperty<constant> 'ShearModulus13' 80000;
+
 
 // Other
 @ExternalStateVariable 'Temperature' 330.;
